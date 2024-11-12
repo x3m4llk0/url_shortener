@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
+	"github.com/joho/godotenv"
 	"log/slog"
 	"os"
-	"url-shortener-rest/internal/config"
-	"url-shortener-rest/internal/lib/logger/sl"
-	"url-shortener-rest/internal/storage/sqlite"
+	"url-shortener/internal/config"
+	"url-shortener/internal/lib/logger/sl"
+	"url-shortener/internal/storage/sqlite"
 )
 
 const (
@@ -16,6 +17,10 @@ const (
 )
 
 func main() {
+	_ = godotenv.Load() // загружает переменные из .env файла.
+	// Сейчас мы это делаем так, чтобы не запускать команду
+	// export CONFIG_PATH=config/local.yaml
+
 	cfg := config.MustLoad()
 	fmt.Println(cfg)
 

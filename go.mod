@@ -1,4 +1,4 @@
-module url-shortener-rest
+module url-shortener
 
 go 1.22.1
 
